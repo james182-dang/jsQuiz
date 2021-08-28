@@ -2,11 +2,28 @@
     box-sizing: border-box;
 }
 
+
+
 header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     background-color: aqua;
+}
+
+.quiz-container {
+    border: 1px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.quiz-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 50%;
 }
 
 .slide {
@@ -25,6 +42,7 @@ header {
 }
 
 .quiz-container {
+    display: block;
     position: relative;
     height: 200px;
     margin-top: 40px;
@@ -32,10 +50,60 @@ header {
 
 .question {
     display: block;
-    color: red;
+    font-size: 30px;
+    height: 80%;
 }
 
 .answers {
     display: block;
-    color: blue;
+    margin-bottom: 10px;
+    width: 50%;
+    height: 30%;
+}
+
+.answers label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Button stylings */
+
+#start {
+    font-size: 25px;
+    font-weight: bold;
+    color: #008000;
+    padding: 15px 30px;
+    outline: none;
+    border: none;
+    border-radius: 10%;
+}
+
+#previous {
+    font-size: 25px;
+    font-weight: bold;
+    color: #008000;
+    padding: 15px 30px;
+    outline: none;
+    border: none;
+    border-radius: 10%;
+}
+
+#next {    
+    font-size: 25px;
+    font-weight: bold;
+    color: #008000;
+    padding: 15px 30px;
+    outline: none;
+    border: none;
+    border-radius: 10%;
+}
+
+#submit {
+    font-size: 25px;
+    font-weight: bold;
+    color: #008000;
+    padding: 15px 30px;
+    outline: none;
+    border: none;
+    border-radius: 10%;
 }

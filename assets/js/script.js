@@ -1,10 +1,11 @@
-
-
 // Functions
+
+
 
 
 //runquiz function
 function runQuiz() {
+    showSlide();
     //variable to store the HTML output
     const output = [];
 
@@ -80,7 +81,6 @@ function showResults() {
 };
 
 
-
 //showSlide function
 function showSlide(n) {
     slides[currentSlide].classList.remove('active-slide');
@@ -102,6 +102,7 @@ function showSlide(n) {
     }
 };
 
+
 //Previous/Next slide buttons functions
 function showNextSlide() {
     showSlide(currentSlide + 1);
@@ -110,6 +111,9 @@ function showNextSlide() {
 function showPreviousSlide() {
     showSlide(currentSlide - 1);
 };
+
+
+
 
 // variables :)
 
@@ -166,7 +170,6 @@ const quizQuestions = [
 
 // Testing functions
 
-runQuiz();
 
 //Pagination
 
@@ -175,12 +178,15 @@ const nextButton = document.getElementById("next");
 const slides = document.querySelectorAll(".slide");
 let currentSlide = 0;
 
-//Testing show slide
 
+//Testing show slide
+runQuiz();
 showSlide(currentSlide);
+
 
 // Event listeners
 startButtonEl.addEventListener("click", runQuiz);
+startButtonEl.addEventListener("click", showSlide);
 previousButton.addEventListener("click", showPreviousSlide);
 nextButton.addEventListener("click", showNextSlide);
 submitButtonEl.addEventListener("click", showResults);
