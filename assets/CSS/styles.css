@@ -2,7 +2,12 @@
     box-sizing: border-box;
 }
 
-
+div #test {
+    border: #5AB029 3px solid;
+    padding: 10px 40px 40px 40px;
+    background-color: #E5FCE3;
+    width: 50%;
+}
 
 header {
     display: flex;
@@ -12,11 +17,9 @@ header {
 }
 
 .quiz-container {
-    border: 1px solid black;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    
+    position: relative;
+    height: 200px;
+    margin-top: 40px;
 }
 
 .quiz-flex {
@@ -26,27 +29,6 @@ header {
     width: 50%;
 }
 
-.slide {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-
-.active-slide {
-    opacity: 1;
-    z-index: 2;
-}
-
-.quiz-container {
-    display: block;
-    position: relative;
-    height: 200px;
-    margin-top: 40px;
-}
 
 .question {
     display: block;
