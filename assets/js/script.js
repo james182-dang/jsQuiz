@@ -2,8 +2,9 @@
 
 var pos = 0;
 var correct = 0;
+var secondTime = localStorage.getItem("score")
+var highScore = localStorage.getItem("initials")
 var test, test_status, question, choice, choices, choiceA, choiceB, choiceC, choiceD;
-
 
 //PSEUDOCODE I HOPE THIS HELPS ME DEAR LORD
 //We have timer functionality
@@ -14,23 +15,26 @@ var test, test_status, question, choice, choices, choiceA, choiceB, choiceC, cho
 // timer functions
 
 
+
 var sec = 90;
+var time = setInterval(quizTimer, 1000);
 
-
-function quizTimer() {
+function quizTimer() { 
 
     
-
-    var time = setInterval(quizTimer, 1000);
-
     document.getElementById('timer').innerHTML = sec + " seconds left!";
-    sec--;
+    
+    sec -= 1;
 
     if (sec === -1) {
         clearInterval(time);
         alert("Time is up!");
     }
 };
+
+function stopTimer() {
+    clearInterval(time);
+}
 
 
 // end timer functions
@@ -76,13 +80,20 @@ function get(x) {
     return document.getElementById(x);
 }
 
-function displayQuestion() {
+get("scoreKeep").innerHTML = "High score:" + secondTime + " by " + highScore;
 
+function displayQuestion() {
 
     test = get("test");
     if (pos >= quizQuestions.length) {
         test.innerHTML = "<h2>You got " + correct + " of " + quizQuestions.length + " questions correct.</h2>";
         get("test_status").innerHTML = "Test completed!";
+        stopTimer();
+        if (sec > secondTime) {
+            localStorage.setItem("score", sec);
+            initials = prompt("Enter your intials!")
+            localStorage.setItem("initials", initials)
+        };
         
         //reset variable to allow restart
         pos = 0;
@@ -113,7 +124,7 @@ function displayQuestion() {
 
 
 
-}
+};
 
 function checkAnswer() {
     // use getElementsByName because we have an array which it will loop through
@@ -127,9 +138,7 @@ function checkAnswer() {
     // check if answer matches correct choice
     if (choice === quizQuestions[pos].answer) {
         correct++;
-    } else if (choice !== quizQuestions[pos].answer) {
-        sec = sec - 10;
-    };
+    }
     
     pos++;
 
