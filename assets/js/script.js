@@ -5,24 +5,33 @@ var correct = 0;
 var test, test_status, question, choice, choices, choiceA, choiceB, choiceC, choiceD;
 
 
+//PSEUDOCODE I HOPE THIS HELPS ME DEAR LORD
+//We have timer functionality
+//Get timer to start on quiz start
+//If timer reaches 0, end quiz
+
+
 // timer functions
 
+
 var sec = 90;
-var time = setInterval(quizTimer, 1000);
 
 
 function quizTimer() {
 
+    
 
+    var time = setInterval(quizTimer, 1000);
 
     document.getElementById('timer').innerHTML = sec + " seconds left!";
     sec--;
-    
+
     if (sec === -1) {
         clearInterval(time);
-        
+        alert("Time is up!");
     }
 };
+
 
 // end timer functions
 
@@ -69,11 +78,12 @@ function get(x) {
 
 function displayQuestion() {
 
+
     test = get("test");
     if (pos >= quizQuestions.length) {
         test.innerHTML = "<h2>You got " + correct + " of " + quizQuestions.length + " questions correct.</h2>";
-        get("test_status").innerHTML = "Test completed";
-
+        get("test_status").innerHTML = "Test completed!";
+        
         //reset variable to allow restart
         pos = 0;
         correct = 0;
@@ -122,9 +132,9 @@ function checkAnswer() {
     };
     
     pos++;
+
     displayQuestion();
-}
+};
 
 document.getElementById("start").addEventListener("click", displayQuestion);
 document.getElementById("start").addEventListener("click", quizTimer);
-document.getElementById("submit").addEventListener("click", resetTimer);
