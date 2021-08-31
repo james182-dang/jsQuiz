@@ -122,8 +122,6 @@ function displayQuestion() {
     test.innerHTML += "<label> <input type='radio' name='choices' value='D'> " + choiceD + "</label><br>";
     test.innerHTML += "<button id='submit' onclick='checkAnswer()'>Submit Answer</button>";
 
-
-
 };
 
 function checkAnswer() {
@@ -138,6 +136,8 @@ function checkAnswer() {
     // check if answer matches correct choice
     if (choice === quizQuestions[pos].answer) {
         correct++;
+    } else if (choice !== quizQuestions[pos].answer) {
+        sec = sec - 10;
     }
     
     pos++;

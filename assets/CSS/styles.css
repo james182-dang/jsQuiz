@@ -12,9 +12,15 @@ div #test {
 header {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
     background-color: aqua;
 }
+
+header h1 {
+    margin: 10px;
+}
+
 
 .quiz-container {
     position: relative;
